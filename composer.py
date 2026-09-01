@@ -12,12 +12,13 @@ import math
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter, ImageEnhance
 
-ROOT = Path(__file__).resolve().parent.parent
-ASSETS = ROOT / "assets"
+ROOT = Path(__file__).resolve().parent
 OUTPUT = ROOT / "output"
 OUTPUT.mkdir(exist_ok=True)
 
-LOGO_PATH = ASSETS / "logo_oficial.png"
+LOGO_PATH = ROOT / "logo_oficial.png"
+if not LOGO_PATH.exists():
+    LOGO_PATH = ROOT / "assets" / "logo_oficial.png"
 
 FONT_SERIF = "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf"
 FONT_REG = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
